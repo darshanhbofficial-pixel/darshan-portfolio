@@ -1,0 +1,1940 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Darshan H Bhagalakoti | Full Stack Developer Portfolio</title>
+  <meta name="description"
+    content="Portfolio of Darshan H Bhagalakoti â€” Information Science & Engineering graduate and Full Stack Developer. Skills in Java, Spring Boot, React, MySQL, and AI/ML projects.">
+  <meta name="author" content="Darshan H Bhagalakoti">
+  <meta name="keywords" content="Full Stack Developer, Java, Spring Boot, React, MySQL, Portfolio, Bengaluru">
+  <meta name="theme-color" content="#030014">
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Darshan H Bhagalakoti | Full Stack Developer">
+  <meta property="og:description"
+    content="Information Science graduate building full-stack web apps and AI solutions with Java, React, and MySQL.">
+  <meta property="og:image"
+    content="https://www.image2url.com/r2/default/images/1780071268723-68c5571c-d93e-46cd-bbf4-788c0c3b7760.png">
+  <meta property="og:url" content="https://darshanhb.dev">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Darshan H Bhagalakoti | Full Stack Developer">
+  <meta name="twitter:description"
+    content="Full Stack Developer portfolio â€” Java, Spring Boot, React, AI/ML projects.">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Darshan H Bhagalakoti",
+    "jobTitle": "Full Stack Developer",
+    "email": "darshanhb.official@gmail.com",
+    "telephone": "+918088810030",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bengaluru",
+      "addressCountry": "IN"
+    },
+    "url": "https://darshanhb.dev",
+    "sameAs": [
+      "https://www.linkedin.com/in/darshan-hb/",
+      "https://github.com/darshanhbofficial-pixel"
+    ],
+    "knowsAbout": ["Java", "Spring Boot", "React", "MySQL", "Python", "Machine Learning"],
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Jain Institute Of Technology"
+    }
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Devicon (skill logos) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+  <!-- Tailwind Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          },
+          colors: {
+            themeDark: '#030014',
+            themeBorder: 'rgba(255, 255, 255, 0.08)',
+            themeCard: 'rgba(255, 255, 255, 0.02)',
+          },
+          animation: {
+            'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'spin-slow': 'spin 20s linear infinite',
+            'bounce-slow': 'bounce 3s infinite',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="style.css?v=9">
+
+  <!-- React & Babel CDNs (no defer â€” must load before app.js) -->
+  <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone@7.22.20/babel.min.js" crossorigin></script>
+
+  <!-- Analytics: replace GA_MEASUREMENT_ID with your Google Analytics ID -->
+  <script>
+    window.GA_MEASUREMENT_ID = '';
+    if (window.GA_MEASUREMENT_ID) {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA_MEASUREMENT_ID;
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', window.GA_MEASUREMENT_ID);
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- Animated mesh + cosmic glow background -->
+  <div class="mesh-bg" aria-hidden="true"></div>
+  <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none" aria-hidden="true">
+    <div
+      class="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] rounded-full bg-indigo-900/20 glow-circle animate-pulse-slow">
+    </div>
+    <div
+      class="absolute top-[40%] left-[30%] w-[45%] h-[45%] rounded-full bg-cyan-900/10 glow-circle animate-pulse-slow"
+      style="animation-delay: 4s;"></div>
+    <div
+      class="absolute bottom-[10%] -right-[10%] w-[55%] h-[55%] rounded-full bg-purple-900/20 glow-circle animate-pulse-slow"
+      style="animation-delay: 2s;"></div>
+  </div>
+
+  <!-- React Application Container -->
+  <div id="root" class="relative z-10"></div>
+  <!-- React App Script -->
+  <script type="text/babel">
+    const { useState, useEffect, useRef } = React;
+
+    // STATIC DATA DEFINTIONS - Kept outside React to prevent infinite loop re-evaluations
+    const SECTION_IDS = ['home', 'about', 'skills', 'experience', 'projects', 'achievements', 'education', 'certifications', 'contact'];
+
+    const NAV_ITEMS = ['About', 'Skills', 'Experience', 'Projects', 'Achievements', 'Education', 'Certifications', 'Contact'];
+
+    const CONTACT_EMAIL = 'darshanhb.official@gmail.com';
+
+    const TECH_MARQUEE = [
+      { name: 'Java', icon: 'devicon-java-plain colored' },
+      { name: 'Python', icon: 'devicon-python-plain colored' },
+      { name: 'JavaScript', icon: 'devicon-javascript-plain colored' },
+      { name: 'React', icon: 'devicon-react-original colored' },
+      { name: 'Spring Boot', icon: 'devicon-spring-plain colored' },
+      { name: 'Node.js', icon: 'devicon-nodejs-plain colored' },
+      { name: 'MySQL', icon: 'devicon-mysql-plain colored' },
+      { name: 'HTML5', icon: 'devicon-html5-plain colored' },
+      { name: 'CSS3', icon: 'devicon-css3-plain colored' },
+      { name: 'TensorFlow', icon: 'devicon-tensorflow-original colored' },
+      { name: 'Git', icon: 'devicon-git-plain colored' },
+      { name: 'GitHub', icon: 'devicon-github-original' }
+    ];
+
+    const DEVICON_MAP = {
+      'Java': 'devicon-java-plain colored',
+      'Python': 'devicon-python-plain colored',
+      'JavaScript': 'devicon-javascript-plain colored',
+      'React': 'devicon-react-original colored',
+      'HTML': 'devicon-html5-plain colored',
+      'CSS': 'devicon-css3-plain colored',
+      'MySQL': 'devicon-mysql-plain colored',
+      'Git': 'devicon-git-plain colored',
+      'GitHub': 'devicon-github-original',
+      'Node.js (Express)': 'devicon-nodejs-plain colored',
+      'Java (Spring Boot)': 'devicon-spring-plain colored',
+      'TensorFlow': 'devicon-tensorflow-original colored'
+    };
+
+    const BLOG_DATA = [
+      {
+        title: 'Building a Full-Stack E-Commerce App with MVC',
+        date: 'Mar 2026',
+        tag: 'Full Stack',
+        excerpt: 'How I structured a Fashion Store application using Java Servlets, JDBC, React, and MySQL â€” from authentication flows to cart and order management.',
+        readTime: '4 min read'
+      },
+      {
+        title: 'Designing a Student Database with Relational SQL',
+        date: 'Feb 2026',
+        tag: 'Database',
+        excerpt: 'Lessons from building CRUD operations, normalized schemas, and efficient SQL queries for managing educational records at scale.',
+        readTime: '3 min read'
+      },
+      {
+        title: 'Real-Time Sign Language Detection with MediaPipe',
+        date: 'Jan 2026',
+        tag: 'AI/ML',
+        excerpt: 'A walkthrough of extracting hand landmarks with MediaPipe and classifying gestures using TensorFlow for accessibility-focused communication.',
+        readTime: '5 min read'
+      }
+    ];
+
+    const STUDENT_DETAILS = {
+      name: "Darshan H Bhagalakoti",
+      title: "Full Stack Developer",
+      profilePic: "https://www.image2url.com/r2/default/images/1780071268723-68c5571c-d93e-46cd-bbf4-788c0c3b7760.png",
+      resumeUrl: "Darshan_H_B_13_NEW.pdf",
+      typingRoles: ["Full Stack Developer", "Software Engineer", "Problem Solver"],
+      tagline: "Information Science & Engineering Graduate",
+      careerObjective: "An Information Science and Engineering graduate with strong fundamentals in information technology, software development, database management, and problem-solving, proficient in programming and analytical thinking, seeking a growth-oriented and challenging role to apply and enhance technical skills while contributing to organizational success.",
+      email: "darshanhb.official@gmail.com",
+      phone: "+91 8088810030",
+      location: "Bengaluru, India",
+      primaryDomain: "Full Stack Web Development",
+      github: "https://github.com/darshanhbofficial-pixel",
+      linkedin: "https://www.linkedin.com/in/darshan-hb/"
+    };
+
+    const SKILLS_DATA = [
+      {
+        title: "Programming",
+        icon: "Code",
+        skills: ["Java", "Python", "JavaScript"],
+        color: "amber",
+        progress: 90
+      },
+      {
+        title: "Frontend",
+        icon: "Code",
+        skills: ["React", "HTML5", "CSS3", "Tailwind CSS"],
+        color: "cyan",
+        progress: 88
+      },
+      {
+        title: "Backend",
+        icon: "Server",
+        skills: ["Spring Boot", "Java Servlets", "Node.js", "Express"],
+        color: "indigo",
+        progress: 85
+      },
+      {
+        title: "Database",
+        icon: "Database",
+        skills: ["MySQL", "JDBC"],
+        color: "purple",
+        progress: 84
+      },
+      {
+        title: "Core Concepts",
+        icon: "Cpu",
+        skills: ["OOP", "DSA", "Operating Systems"],
+        color: "rose",
+        progress: 82
+      },
+      {
+        title: "Testing",
+        icon: "CheckCircle",
+        skills: ["JUnit", "Selenium", "TestNG", "Cucumber"],
+        color: "emerald",
+        progress: 80
+      },
+      {
+        title: "Version Control",
+        icon: "Github",
+        skills: ["Git", "GitHub"],
+        color: "sky",
+        progress: 92
+      }
+    ];
+
+    const EXPERIENCE_DATA = [
+      {
+        role: "AI Software Developer Intern",
+        company: "TAP Academy",
+        location: "Bengaluru, India",
+        duration: "Feb 2026 â€“ Jul 2026",
+        highlights: [
+          "Gained practical experience in software development and full-stack web technologies.",
+          "Learned Core Java, Advanced Java, MySQL, HTML, CSS, and JavaScript.",
+          "Worked on a Fashion Store E-Commerce Web Application using MVC architecture.",
+          "Integrated frontend, backend, and database modules for complete application development."
+        ],
+        tech: ["Java", "Spring Boot", "React", "MySQL", "HTML", "CSS", "JavaScript", "MVC"]
+      }
+    ];
+
+    const EDUCATION_DATA = [
+      {
+        degree: "B.E. in Information Science and Engineering",
+        institution: "Jain Institute Of Technology",
+        location: "Davanagere, India",
+        duration: "2022 â€“ 2026",
+        score: "CGPA: 8.56",
+        description: "Bachelor of Engineering in Information Science and Engineering with strong knowledge in software development, database management, web technologies, and problem-solving. Built Full Stack and AI-based projects including Sign Language Detection and Fashion Store E-Commerce, while gaining practical experience through an AI Software Developer Internship."
+      },
+      {
+        degree: "Pre-University - PCMB",
+        institution: "Bhadra PU College",
+        location: "Davanagere, India",
+        duration: "2019 â€“ 2021",
+        score: "Percentage: 84.66%",
+        description: "Completed Pre-University education (PCMB stream) at Bhadra PU College, Davanagere with an aggregate score of 84.66%."
+      },
+      {
+        degree: "SSLC",
+        institution: "Lourdes Boy's School",
+        location: "Davanagere, India",
+        duration: "2019",
+        score: "Percentage: 81.92%",
+        description: "Completed Secondary School Leaving Certificate (SSLC) at Lourdes Boy's School, Davanagere with an aggregate score of 81.92%."
+      }
+    ];
+
+    const ACHIEVEMENTS_DATA = [
+      {
+        title: "Certified Test Engineer",
+        issuer: "Infosys Foundation",
+        description: "Earned Test Engineer certification from Infosys Foundation, validating expertise in web automation and quality assurance practices.",
+        badge: "Web Automation"
+      }
+    ];
+
+    const CERTIFICATIONS_DATA = [
+      { title: "Test Engineer", issuer: "Infosys Foundation", skill: "Web Automation", issueDate: "August 4", featured: true },
+      { title: "Java Programming", issuer: "Great Learning", skill: "Backend Development", featured: false },
+      { title: "Operating System", issuer: "Great Learning", skill: "OS Concepts", featured: false },
+      { title: "Cloud Computing", issuer: "Infosys Springboard", skill: "Cloud Fundamentals", featured: false },
+      { title: "Artificial Intelligence", issuer: "Infosys Springboard", skill: "AI Fundamentals", featured: false, wide: true }
+    ];
+
+    const PROJECTS_DATA = [
+      {
+        title: "Fashion Store E-Commerce Web Application",
+        category: "Web App",
+        status: "Completed",
+        description: "Developed a full-stack fashion e-commerce web application using MVC architecture. Implemented user authentication, product browsing, shopping cart, and order management using Java Servlets, JDBC, and MySQL. Designed responsive interfaces with React, HTML, and CSS, integrating frontend with backend modules for seamless functionality.",
+        tech: ["React", "HTML", "CSS", "Java", "JDBC", "Servlets", "MySQL", "Apache Tomcat"],
+        thumbGradient: "from-cyan-600 via-indigo-600 to-purple-700",
+        thumbIcon: "ðŸ›ï¸",
+        demo: null,
+        github: null
+      },
+      {
+        title: "Asset Tracking System",
+        category: "Web App",
+        status: "Completed",
+        description: "Developed a full-stack asset tracking system to efficiently manage and monitor organizational assets. Implemented secure CRUD operations, asset search, inventory tracking, and responsive user interfaces using React, Java Servlets, JDBC, MySQL, and Apache Tomcat.",
+        tech: ["React", "HTML", "CSS", "Java", "JDBC", "Servlets", "MySQL", "Apache Tomcat"],
+        thumbGradient: "from-emerald-600 via-teal-600 to-cyan-700",
+        thumbIcon: "📦",
+        demo: null,
+        github: null
+      },
+      {
+        title: "Student Database Management System",
+        category: "Database",
+        status: "Completed",
+        description: "Designed and managed a database system for storing and retrieving student records. Performed database operations such as insert, update, delete, and search using SQL queries. Improved data organization and management efficiency using relational database concepts.",
+        tech: ["MySQL", "SQL Queries", "Database Design"],
+        thumbGradient: "from-purple-600 via-indigo-600 to-blue-700",
+        thumbIcon: "ðŸ—„ï¸",
+        demo: null,
+        github: null
+      },
+      {
+        title: "Sign Language Detection",
+        category: "AI/ML",
+        status: "Completed",
+        description: "Built a computer vision model to detect and recognize sign language gestures in real-time. Used MediaPipe for hand landmark extraction and TensorFlow for gesture classification. Enhanced communication accessibility through machine learning and image processing techniques.",
+        tech: ["Python", "OpenCV", "MediaPipe", "TensorFlow", "NumPy"],
+        thumbGradient: "from-amber-500 via-rose-600 to-purple-700",
+        thumbIcon: "ðŸ¤Ÿ",
+        demo: null,
+        github: null
+      }
+    ];
+
+    const SKILL_COLOR_MAP = {
+      amber: { bg: "bg-amber-500/10", text: "text-amber-400", bar: "bg-amber-400", shadow: "rgba(245,158,11,0.8)", hoverBorder: "hover:border-amber-500/30", hoverBg: "hover:bg-amber-500/5", hoverText: "hover:text-amber-300" },
+      cyan: { bg: "bg-cyan-500/10", text: "text-cyan-400", bar: "bg-cyan-400", shadow: "rgba(6,182,212,0.8)", hoverBorder: "hover:border-cyan-500/30", hoverBg: "hover:bg-cyan-500/5", hoverText: "hover:text-cyan-300" },
+      indigo: { bg: "bg-indigo-500/10", text: "text-indigo-400", bar: "bg-indigo-400", shadow: "rgba(99,102,241,0.8)", hoverBorder: "hover:border-indigo-500/30", hoverBg: "hover:bg-indigo-500/5", hoverText: "hover:text-indigo-300" },
+      purple: { bg: "bg-purple-500/10", text: "text-purple-400", bar: "bg-purple-400", shadow: "rgba(139,92,246,0.8)", hoverBorder: "hover:border-purple-500/30", hoverBg: "hover:bg-purple-500/5", hoverText: "hover:text-purple-300" },
+      rose: { bg: "bg-rose-500/10", text: "text-rose-400", bar: "bg-rose-400", shadow: "rgba(244,63,94,0.8)", hoverBorder: "hover:border-rose-500/30", hoverBg: "hover:bg-rose-500/5", hoverText: "hover:text-rose-300" },
+      emerald: { bg: "bg-emerald-500/10", text: "text-emerald-400", bar: "bg-emerald-400", shadow: "rgba(52,211,153,0.8)", hoverBorder: "hover:border-emerald-500/30", hoverBg: "hover:bg-emerald-500/5", hoverText: "hover:text-emerald-300" },
+      sky: { bg: "bg-sky-500/10", text: "text-sky-400", bar: "bg-sky-400", shadow: "rgba(14,165,233,0.8)", hoverBorder: "hover:border-sky-500/30", hoverBg: "hover:bg-sky-500/5", hoverText: "hover:text-sky-300" }
+    };
+
+    // Direct SVGs for Lucide Icons to prevent external download latency
+    const Icons = {
+      Github: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+      ),
+      Linkedin: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+      ),
+      Location: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+      ),
+      Mail: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+      ),
+      ExternalLink: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" x2="21" y1="14" y2="3"></line></svg>
+      ),
+      Code: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+      ),
+      Server: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"></rect><rect width="20" height="8" x="2" y="14" rx="2" ry="2"></rect><line x1="6" x2="6.01" y1="6" y2="6"></line><line x1="6" x2="6.01" y1="18" y2="18"></line></svg>
+      ),
+      Database: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path></svg>
+      ),
+      Cpu: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"></rect><rect width="6" height="6" x="9" y="9" rx="1"></rect><path d="M9 1v3"></path><path d="M15 1v3"></path><path d="M9 20v3"></path><path d="M15 20v3"></path><path d="M20 9h3"></path><path d="M20 15h3"></path><path d="M1 9h3"></path><path d="M1 15h3"></path></svg>
+      ),
+      Wrench: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+      ),
+      GraduationCap: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
+      ),
+      Award: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+      ),
+      CheckCircle: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+      ),
+      Menu: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+      ),
+      X: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" x2="6" y1="6" y2="18"></line><line x1="6" x2="18" y1="6" y2="18"></line></svg>
+      ),
+      ArrowUp: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" x2="12" y1="19" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+      ),
+      ArrowRight: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" x2="19" y1="12" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      ),
+      Briefcase: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+      ),
+      Phone: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      ),
+      Sun: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+      ),
+      Moon: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+      ),
+      FileText: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><line x1="10" x2="14" y1="13" y2="13"></line><line x1="10" x2="14" y1="17" y2="17"></line></svg>
+      )
+    };
+
+    const getDevicon = (skill) => {
+      if (DEVICON_MAP[skill]) return DEVICON_MAP[skill];
+      const key = Object.keys(DEVICON_MAP).find(k => skill.includes(k.split(' ')[0]));
+      return key ? DEVICON_MAP[key] : null;
+    };
+
+    // React-based Typewriter Hook Component
+    const Typewriter = ({ words, typingSpeed = 100, deletingSpeed = 60, delay = 2000 }) => {
+      const [currentWordIndex, setCurrentWordIndex] = useState(0);
+      const [currentText, setCurrentText] = useState('');
+      const [isDeleting, setIsDeleting] = useState(false);
+
+      useEffect(() => {
+        let timer;
+        const word = words[currentWordIndex];
+
+        if (isDeleting) {
+          timer = setTimeout(() => {
+            setCurrentText(word.substring(0, currentText.length - 1));
+          }, deletingSpeed);
+        } else {
+          timer = setTimeout(() => {
+            setCurrentText(word.substring(0, currentText.length + 1));
+          }, typingSpeed);
+        }
+
+        if (!isDeleting && currentText === word) {
+          timer = setTimeout(() => setIsDeleting(true), delay);
+        } else if (isDeleting && currentText === '') {
+          setIsDeleting(false);
+          setCurrentWordIndex((prev) => (prev + 1) % words.length);
+        }
+
+        return () => clearTimeout(timer);
+      }, [currentText, isDeleting, currentWordIndex, words, typingSpeed, deletingSpeed, delay]);
+
+      return (
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 font-extrabold border-r-4 border-indigo-500 animate-pulse pr-1">
+          {currentText}
+        </span>
+      );
+    };
+
+    // Custom Scrollspy Hook (Uses stable SECTION_IDS)
+    const useActiveSection = (offset = 120) => {
+      const [activeSection, setActiveSection] = useState('');
+
+      useEffect(() => {
+        const handleScroll = () => {
+          const scrollPosition = window.scrollY + offset;
+
+          for (const id of SECTION_IDS) {
+            const el = document.getElementById(id);
+            if (el) {
+              const top = el.offsetTop;
+              const height = el.offsetHeight;
+              if (scrollPosition >= top && scrollPosition < top + height) {
+                setActiveSection(id);
+                break;
+              }
+            }
+          }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+        return () => window.removeEventListener('scroll', handleScroll);
+      }, [offset]);
+
+      return activeSection;
+    };
+
+    const useTheme = () => {
+      const [theme, setTheme] = useState(() => {
+        try { return localStorage.getItem('portfolio-theme') || 'dark'; } catch { return 'dark'; }
+      });
+
+      useEffect(() => {
+        document.documentElement.setAttribute('data-theme', theme);
+        try { localStorage.setItem('portfolio-theme', theme); } catch { }
+        const meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.content = theme === 'dark' ? '#030014' : '#eef2ff';
+      }, [theme]);
+
+      const toggleTheme = () => setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+      return [theme, toggleTheme];
+    };
+
+    const ScrollReveal = ({ children, className = '', delay = 0, direction = 'up' }) => {
+      const ref = useRef(null);
+      const [visible, setVisible] = useState(false);
+
+      useEffect(() => {
+        const el = ref.current;
+        if (!el) return;
+        const observer = new IntersectionObserver(([entry]) => {
+          if (entry.isIntersecting) { setVisible(true); observer.unobserve(el); }
+        }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+        observer.observe(el);
+        return () => observer.disconnect();
+      }, []);
+
+      const baseClass = direction === 'left' ? 'scroll-reveal-left' : 'scroll-reveal';
+      return (
+        <div ref={ref} className={`${baseClass} ${visible ? 'is-visible' : ''} ${className}`} style={{ transitionDelay: `${delay}ms` }}>
+          {children}
+        </div>
+      );
+    };
+
+    const TiltCard = ({ children, className = '' }) => {
+      const ref = useRef(null);
+      const handleMove = (e) => {
+        const card = ref.current;
+        if (!card || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const rect = card.getBoundingClientRect();
+        const rotateX = ((e.clientY - rect.top - rect.height / 2) / rect.height) * -10;
+        const rotateY = ((e.clientX - rect.left - rect.width / 2) / rect.width) * 10;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      };
+      const handleLeave = () => { if (ref.current) ref.current.style.transform = ''; };
+      return (
+        <div ref={ref} className={`tilt-card glass-card ${className}`} onMouseMove={handleMove} onMouseLeave={handleLeave}>
+          {children}
+        </div>
+      );
+    };
+
+    const MagneticWrap = ({ children, className = '' }) => {
+      const ref = useRef(null);
+      const handleMove = (e) => {
+        const el = ref.current;
+        if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const rect = el.getBoundingClientRect();
+        el.style.transform = `translate(${(e.clientX - rect.left - rect.width / 2) * 0.18}px, ${(e.clientY - rect.top - rect.height / 2) * 0.18}px)`;
+      };
+      const handleLeave = () => { if (ref.current) ref.current.style.transform = ''; };
+      return (
+        <div ref={ref} className={`magnetic-wrap ${className}`} onMouseMove={handleMove} onMouseLeave={handleLeave}>
+          {children}
+        </div>
+      );
+    };
+
+    const TimelineAnimated = ({ children, className = '' }) => {
+      const ref = useRef(null);
+      const [drawn, setDrawn] = useState(false);
+      useEffect(() => {
+        const el = ref.current;
+        if (!el) return;
+        const observer = new IntersectionObserver(([entry]) => {
+          if (entry.isIntersecting) { setDrawn(true); observer.unobserve(el); }
+        }, { threshold: 0.15 });
+        observer.observe(el);
+        return () => observer.disconnect();
+      }, []);
+      return (
+        <div ref={ref} className={`timeline-animated pl-6 sm:pl-8 border-l border-white/10 space-y-12 ${drawn ? 'is-drawn' : ''} ${className}`}>
+          {children}
+        </div>
+      );
+    };
+
+    const TechMarquee = () => (
+      <div className="relative overflow-hidden py-6 mb-8">
+        <div className="absolute left-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-r from-[var(--bg-primary)] to-transparent pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-l from-[var(--bg-primary)] to-transparent pointer-events-none" />
+        <div className="marquee-track">
+          {[...TECH_MARQUEE, ...TECH_MARQUEE].map((tech, i) => (
+            <span key={`${tech.name}-${i}`} className="marquee-item">
+              <i className={tech.icon}></i>
+              {tech.name}
+            </span>
+          ))}
+        </div>
+      </div>
+    );
+
+    const ThemeToggle = ({ theme, onToggle }) => (
+      <button onClick={onToggle} className="theme-toggle" aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}>
+        <span className="theme-toggle-knob text-white">
+          {theme === 'dark' ? <Icons.Moon /> : <Icons.Sun />}
+        </span>
+      </button>
+    );
+
+    const ParticleBackground = () => {
+      const canvasRef = useRef(null);
+
+      useEffect(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let animationFrameId;
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        const handleResize = () => {
+          width = canvas.width = window.innerWidth;
+          height = canvas.height = window.innerHeight;
+        };
+        window.addEventListener('resize', handleResize);
+
+        const particles = [];
+        const particleCount = 45;
+
+        for (let i = 0; i < particleCount; i++) {
+          particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            radius: Math.random() * 1.5 + 0.5,
+            vx: (Math.random() - 0.5) * 0.15,
+            vy: (Math.random() - 0.5) * 0.15,
+            alpha: Math.random() * 0.4 + 0.1
+          });
+        }
+
+        const mouse = { x: null, y: null, radius: 120 };
+        const handleMouseMove = (e) => {
+          mouse.x = e.clientX;
+          mouse.y = e.clientY;
+        };
+        const handleMouseLeave = () => {
+          mouse.x = null;
+          mouse.y = null;
+        };
+        window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('mouseleave', handleMouseLeave);
+
+        const animate = () => {
+          ctx.clearRect(0, 0, width, height);
+          const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+          ctx.fillStyle = isLight
+            ? 'rgba(99, 102, 241, 0.3)'
+            : 'rgba(255, 255, 255, 0.4)';
+
+          particles.forEach((p) => {
+            p.x += p.vx;
+            p.y += p.vy;
+
+            if (p.x < 0 || p.x > width) p.vx = -p.vx;
+            if (p.y < 0 || p.y > height) p.vy = -p.vy;
+
+            if (mouse.x !== null && mouse.y !== null) {
+              const dx = p.x - mouse.x;
+              const dy = p.y - mouse.y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              if (dist < mouse.radius) {
+                const force = (mouse.radius - dist) / mouse.radius;
+                p.x += (dx / dist) * force * 0.6;
+                p.y += (dy / dist) * force * 0.6;
+              }
+            }
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.globalAlpha = p.alpha;
+            ctx.fill();
+          });
+
+          animationFrameId = requestAnimationFrame(animate);
+        };
+
+        animate();
+
+        return () => {
+          window.removeEventListener('resize', handleResize);
+          window.removeEventListener('mousemove', handleMouseMove);
+          window.removeEventListener('mouseleave', handleMouseLeave);
+          cancelAnimationFrame(animationFrameId);
+        };
+      }, []);
+
+      return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0" />;
+    };
+
+    // MAIN COMPONENT
+    const PortfolioApp = () => {
+      const [theme, toggleTheme] = useTheme();
+      const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+      const [projectFilter, setProjectFilter] = useState('All');
+      const [isCertModalOpen, setIsCertModalOpen] = useState(false);
+      const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
+      const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+      const [isSubmitting, setIsSubmitting] = useState(false);
+      const [formName, setFormName] = useState('');
+      const [formEmail, setFormEmail] = useState('');
+      const [formSubject, setFormSubject] = useState('');
+      const [formMessage, setFormMessage] = useState('');
+      const [formErrors, setFormErrors] = useState({});
+      const [scrollProgress, setScrollProgress] = useState(0);
+      const [navHidden, setNavHidden] = useState(false);
+      const lastScrollY = useRef(0);
+
+      const activeSection = useActiveSection();
+
+      useEffect(() => {
+        const handleScroll = () => {
+          const currentY = window.scrollY;
+          const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+
+          // Update scroll progress bar
+          if (totalScroll > 0) {
+            setScrollProgress((currentY / totalScroll) * 100);
+          }
+
+          // Hide nav on scroll down, show on scroll up
+          if (currentY > lastScrollY.current && currentY > 80) {
+            setNavHidden(true);
+          } else {
+            setNavHidden(false);
+          }
+          lastScrollY.current = currentY;
+        };
+        const handleMouseMove = (e) => {
+          document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+          document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+          window.removeEventListener('mousemove', handleMouseMove);
+        };
+      }, []);
+
+      const handleContactSubmit = (e) => {
+        e.preventDefault();
+        const errors = {};
+
+        if (!formName.trim()) errors.name = "Name is required";
+        if (!formEmail.trim()) {
+          errors.email = "Email is required";
+        } else if (!/\S+@\S+\.\S+/.test(formEmail)) {
+          errors.email = "Please enter a valid email address";
+        }
+        if (!formMessage.trim()) errors.message = "Message is required";
+
+        if (Object.keys(errors).length > 0) {
+          setFormErrors(errors);
+          return;
+        }
+
+        setFormErrors({});
+        setIsSubmitting(true);
+
+        // Create hidden iframe if it doesn't exist
+        let iframe = document.getElementById('formsubmit-iframe');
+        if (!iframe) {
+          iframe = document.createElement('iframe');
+          iframe.id = 'formsubmit-iframe';
+          iframe.name = 'formsubmit-iframe';
+          iframe.style.display = 'none';
+          document.body.appendChild(iframe);
+        }
+
+        // Create temporary form to submit natively to FormSubmit
+        const tempForm = document.createElement('form');
+        tempForm.action = 'https://formsubmit.co/darshanhb.official@gmail.com';
+        tempForm.method = 'POST';
+        tempForm.target = 'formsubmit-iframe';
+
+        const fields = {
+          name: formName,
+          email: formEmail,
+          _subject: `New Portfolio Message from ${formName}`,
+          subject: formSubject || 'Portfolio Contact',
+          message: formMessage,
+          _captcha: 'false',
+          _template: 'table'
+        };
+
+        Object.keys(fields).forEach(key => {
+          const input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = key;
+          input.value = fields[key];
+          tempForm.appendChild(input);
+        });
+
+        document.body.appendChild(tempForm);
+        tempForm.submit();
+
+        // Clean up form element after submission
+        setTimeout(() => {
+          if (document.body.contains(tempForm)) {
+            document.body.removeChild(tempForm);
+          }
+          setIsSubmitting(false);
+          setIsSuccessModalOpen(true);
+        }, 1000);
+      };
+
+      const closeSuccessModal = () => {
+        setIsSuccessModalOpen(false);
+        setFormName('');
+        setFormEmail('');
+        setFormSubject('');
+        setFormMessage('');
+      };
+
+      const filteredProjects = projectFilter === 'All'
+        ? PROJECTS_DATA
+        : PROJECTS_DATA.filter(p => p.category === projectFilter);
+
+      return (
+        <div className="min-h-screen text-slate-100 font-sans selection:bg-indigo-500/30 selection:text-white">
+
+          {/* Scroll Progress Bar */}
+          <div
+            className="fixed top-0 left-0 h-1 bg-gradient-to-r from-cyan-400 via-indigo-500 to-purple-600 z-50 transition-all duration-75"
+            style={{ width: `${scrollProgress}%`, boxShadow: '0 0 8px rgba(99, 102, 241, 0.8)' }}
+          />
+
+          {/* Particle Background */}
+          <ParticleBackground />
+
+          {/* Cursor Follower Glow */}
+          <div className="cursor-glow pointer-events-none fixed inset-0 z-0" aria-hidden="true" />
+
+          {/* FLOATING NAVBAR */}
+          <nav className="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300" style={{ transform: navHidden ? 'translateY(-100%)' : 'translateY(0)', transitionDuration: '350ms', transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)' }}>
+            <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between gap-4">
+
+              <div className="flex items-center shrink-0">
+                <ThemeToggle theme={theme} onToggle={toggleTheme} />
+              </div>
+
+              {/* Desktop Nav Items */}
+              <div className="hidden lg:flex items-center space-x-5 xl:space-x-6 overflow-x-auto overflow-y-hidden py-1.5">
+                {NAV_ITEMS.map((item) => {
+                  const id = item.toLowerCase();
+                  const isActive = activeSection === id;
+                  return (
+                    <a
+                      key={item}
+                      href={`#${id}`}
+                      className={`text-sm font-semibold tracking-wide py-2 nav-link ${isActive ? 'active-nav-link text-indigo-300' : 'text-slate-400'
+                        }`}
+                    >
+                      {item}
+                    </a>
+                  );
+                })}
+              </div>
+
+              {/* Resume Buttons */}
+              <div className="hidden md:flex items-center gap-3 shrink-0">
+
+                {/* View Resume */}
+                <MagneticWrap>
+                  <a
+                    href={STUDENT_DETAILS.resumeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative group overflow-hidden px-5 py-2 rounded-full text-sm font-semibold tracking-wider text-white border border-indigo-500/50 bg-indigo-500/10 hover:border-transparent transition-all duration-300 flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                  >
+                    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-cyan-500 via-indigo-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <span className="relative z-10 flex items-center gap-1.5">
+                      📄 View Resume
+                      <Icons.ExternalLink />
+                    </span>
+                  </a>
+                </MagneticWrap>
+
+                {/* Download Resume */}
+                <MagneticWrap>
+                  <a
+                    href={STUDENT_DETAILS.resumeUrl}
+                    download="Darshan_H_B_Resume.pdf"
+                    className="relative group overflow-hidden px-5 py-2 rounded-full text-sm font-semibold tracking-wider text-white border border-cyan-500/50 bg-cyan-500/10 hover:border-transparent transition-all duration-300 flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                  >
+                    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <span className="relative z-10 flex items-center gap-1.5">
+                      ⬇ Download
+                    </span>
+                  </a>
+                </MagneticWrap>
+
+              </div>
+
+              {/* Mobile Hamburger Trigger */}
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="md:hidden text-slate-300 hover:text-white p-2 rounded-lg focus:outline-none"
+                aria-label="Toggle menu"
+              >
+                {isMobileMenuOpen ? <Icons.X /> : <Icons.Menu />}
+              </button>
+            </div>
+
+            {/* Mobile Navigation Panel */}
+            {isMobileMenuOpen && (
+              <div className="md:hidden absolute top-20 left-0 right-0 glass-nav border-t border-white/5 py-6 px-8 flex flex-col space-y-5">
+                {['About', 'Skills', 'Experience', 'Projects', 'Achievements', 'Education', 'Certifications', 'Contact'].map((item) => {
+                  const id = item.toLowerCase();
+                  return (
+                    <a
+                      key={item}
+                      href={`#${id}`}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`text-base font-medium tracking-wide py-2 ${activeSection === id ? 'text-indigo-400 font-bold border-l-2 border-indigo-400 pl-3' : 'text-slate-300 hover:text-white'
+                        }`}
+                    >
+                      {item}
+                    </a>
+                  );
+                })}
+                <a
+                  href={STUDENT_DETAILS.resumeUrl}
+                  download
+                  className="w-full text-center py-3 rounded-xl font-bold bg-gradient-to-r from-cyan-500 to-indigo-600 text-white flex items-center justify-center gap-2"
+                >
+                  Download Resume
+                  <Icons.ExternalLink />
+                </a>
+              </div>
+            )}
+          </nav>
+
+          {/* HERO SECTION */}
+          <section id="home" className="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden">
+            <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+              {/* Hero Copy */}
+              <div className="lg:col-span-7 flex flex-col justify-center space-y-6 text-left order-2 lg:order-1">
+
+                {/* Availability Tag */}
+                <div className="inline-flex items-center space-x-2 bg-indigo-500/10 border border-indigo-500/30 rounded-full px-4 py-1.5 w-fit">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                  <span className="text-xs font-semibold tracking-wider text-indigo-300 uppercase">
+                    Open for opportunities
+                  </span>
+                </div>
+
+                {/* Name */}
+                <div className="space-y-2">
+                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading tracking-tight leading-none text-white">
+                    Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-500">{STUDENT_DETAILS.name}</span>
+                  </h1>
+
+                  {/* Typewriter Title */}
+                  <h2 className="text-2xl sm:text-3xl font-bold text-slate-300 h-10 flex items-center">
+                    <span className="mr-2">I am a</span>
+                    <Typewriter words={STUDENT_DETAILS.typingRoles} />
+                  </h2>
+                </div>
+
+                {/* Tagline / Subtitle */}
+                <p className="text-base sm:text-lg text-slate-400 max-w-xl font-normal leading-relaxed">
+                  {STUDENT_DETAILS.tagline}. Seeking a growth-oriented role to apply skills in Java, Spring Boot, React, and MySQL while building impactful software solutions.
+                </p>
+
+                {/* Location and Domain Quick Info */}
+                <div className="flex flex-wrap gap-4 text-sm text-slate-400 pt-2">
+                  <div className="flex items-center gap-2 bg-white/5 border border-white/5 rounded-xl px-4 py-2">
+                    <Icons.Location />
+                    <span>{STUDENT_DETAILS.location}</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-white/5 border border-white/5 rounded-xl px-4 py-2">
+                    <Icons.Briefcase />
+                    <span>Domain: {STUDENT_DETAILS.primaryDomain}</span>
+                  </div>
+                </div>
+
+                {/* Action Buttons & Socials */}
+                <div className="flex flex-wrap items-center gap-4 pt-4">
+                  <a
+                    href="#contact"
+                    className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-white font-bold tracking-wide shadow-lg shadow-indigo-500/20 hover:shadow-cyan-500/20 hover:scale-105 active:scale-95 transition-all duration-300"
+                  >
+                    Let's Connect
+                  </a>
+                  <a
+                    href="#projects"
+                    className="px-8 py-3.5 rounded-xl border border-white/10 bg-white/5 text-slate-200 hover:bg-white/10 hover:border-indigo-500/30 font-semibold tracking-wide hover:scale-105 active:scale-95 transition-all duration-300"
+                  >
+                    View Projects
+                  </a>
+
+                  {/* Social Buttons */}
+                  <div className="flex items-center gap-3 pl-2 sm:border-l sm:border-white/10 sm:h-10">
+                    <a
+                      href={STUDENT_DETAILS.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 rounded-full border border-white/5 bg-white/5 hover:border-indigo-400/50 hover:text-indigo-400 hover:shadow-[0_0_15px_rgba(99,102,241,0.3)] transition-all duration-300 text-slate-300"
+                      aria-label="LinkedIn"
+                    >
+                      <Icons.Linkedin />
+                    </a>
+                    <a
+                      href={STUDENT_DETAILS.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 rounded-full border border-white/5 bg-white/5 hover:border-purple-400/50 hover:text-purple-400 hover:shadow-[0_0_15px_rgba(139,92,246,0.3)] transition-all duration-300 text-slate-300"
+                      aria-label="GitHub"
+                    >
+                      <Icons.Github />
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Profile Image container (Glow + Glass Frame) */}
+              <div className="lg:col-span-5 flex justify-center order-1 lg:order-2">
+                <div className="relative group w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96">
+                  {/* Decorative glowing backdrops */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500 via-indigo-500 to-purple-600 rounded-3xl blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500 animate-spin-slow"></div>
+                  <div className="absolute -inset-1.5 bg-gradient-to-tr from-cyan-400 to-purple-600 rounded-3xl opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+
+                  {/* Main Image Shield */}
+                  <div className="relative w-full h-full rounded-3xl overflow-hidden border border-white/15 bg-slate-900/60 p-2 backdrop-blur-sm">
+                    <img
+                      src={STUDENT_DETAILS.profilePic}
+                      alt="Darshan H Bhagalakoti"
+                      className="w-full h-full object-cover rounded-2xl transform transition-transform duration-500 group-hover:scale-105"
+                      loading="eager"
+                    />
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Scroll Indicator */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-60 hover:opacity-100 transition-opacity">
+              <a href="#about" className="animate-bounce-slow flex flex-col items-center text-xs tracking-widest uppercase text-slate-400 font-semibold focus:outline-none">
+                Scroll Down
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="mt-1"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </a>
+            </div>
+          </section>
+
+          {/* ABOUT SECTION */}
+          <section id="about" className="py-24 relative overflow-hidden">
+            <div className="max-w-7xl mx-auto px-6">
+
+              {/* Section Header */}
+              <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span className="text-sm font-bold tracking-widest text-indigo-400 uppercase">Biographical Profile</span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white tracking-tight">About Me</h2>
+                <div className="h-1 w-20 bg-gradient-to-r from-cyan-500 to-indigo-500 mx-auto rounded-full" />
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+
+                {/* Left Side: Short Summary Cards */}
+                <div className="lg:col-span-5 flex flex-col gap-6 justify-between">
+                  <div className="glass-card rounded-2xl p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="p-2.5 rounded-xl bg-indigo-500/10 text-indigo-400">
+                          <Icons.GraduationCap />
+                        </div>
+                        <h3 className="font-heading font-bold text-lg text-white">Academic Focus</h3>
+                      </div>
+                      <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+                        Information Science & Engineering graduate with strong fundamentals in software development, database management, and problem-solving.
+                      </p>
+                    </div>
+                    <div className="mt-6 pt-6 border-t border-white/5 flex items-center justify-between">
+                      <span className="text-xs font-semibold text-slate-400 uppercase">Degree Standing</span>
+                      <span className="text-sm font-extrabold text-indigo-400">CGPA: 8.56 / 10</span>
+                    </div>
+                  </div>
+
+                  <div className="glass-card rounded-2xl p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="p-2.5 rounded-xl bg-cyan-500/10 text-cyan-400">
+                          <Icons.Code />
+                        </div>
+                        <h3 className="font-heading font-bold text-lg text-white">Career Focus</h3>
+                      </div>
+                      <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+                        Proficient in programming and analytical thinking, ready to contribute to organizational success through full-stack development and AI-driven solutions.
+                      </p>
+                    </div>
+                    <div className="mt-6 pt-6 border-t border-white/5 flex items-center justify-between">
+                      <span className="text-xs font-semibold text-slate-400 uppercase">Core Domain</span>
+                      <span className="text-sm font-extrabold text-cyan-400">Full Stack Development</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Side: Detailed Narrative */}
+                <div className="lg:col-span-7 glass-card rounded-2xl p-8 flex flex-col justify-between">
+                  <div className="space-y-6">
+                    <h3 className="text-2xl font-bold font-heading text-white">My Technical Journey</h3>
+
+                    <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                      {STUDENT_DETAILS.careerObjective}
+                    </p>
+
+                    <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                      I have built projects including a Fashion Store E-Commerce Web Application, Student Database Management System, and Sign Language Detection using computer vision and machine learning. During my internship as an AI Software Developer at TAP Academy, I gained hands-on experience in full-stack development, MVC architecture, and integrating frontend, backend, and database systems.
+                    </p>
+
+                    <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                      Certified as a Test Engineer by Infosys Foundation, I continuously strengthen my problem-solving skills and aim to create software solutions that deliver real-world value.
+                    </p>
+                  </div>
+
+                  <div className="mt-8 pt-6 border-t border-white/5 grid grid-cols-3 gap-4 text-center">
+                    <div>
+                      <div className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400 font-heading">Java</div>
+                      <div className="text-xs font-medium text-slate-400 uppercase tracking-wider mt-1">Primary Backend</div>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400 font-heading">React</div>
+                      <div className="text-xs font-medium text-slate-400 uppercase tracking-wider mt-1">Primary Frontend</div>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400 font-heading">MySQL</div>
+                      <div className="text-xs font-medium text-slate-400 uppercase tracking-wider mt-1">Database Standard</div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          {/* SKILLS SECTION */}
+          <section id="skills" className="py-24 relative overflow-hidden bg-white/[0.01]">
+            <div className="max-w-7xl mx-auto px-6">
+
+              {/* Section Header */}
+              <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span className="text-sm font-bold tracking-widest text-cyan-400 uppercase">Expertise</span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white tracking-tight">Skills & Tech Stack</h2>
+                <div className="h-1 w-20 bg-gradient-to-r from-cyan-500 to-indigo-500 mx-auto rounded-full" />
+              </div>
+
+              {/* Grid Layout of Categories */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {SKILLS_DATA.map((category) => {
+                  const colors = SKILL_COLOR_MAP[category.color];
+                  const IconComponent = Icons[category.icon];
+                  return (
+                    <div key={category.title} className="glass-card rounded-2xl p-6 flex flex-col justify-between">
+                      <div>
+                        <div className="flex items-center gap-3 mb-5">
+                          <div className={`p-2.5 rounded-xl ${colors.bg} ${colors.text}`}>
+                            <IconComponent />
+                          </div>
+                          <h3 className="font-heading font-bold text-lg text-white">{category.title}</h3>
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          {category.skills.map((skill) => (
+                            <span
+                              key={skill}
+                              className={`px-3.5 py-2 rounded-xl text-sm font-semibold border border-white/5 bg-white/5 ${colors.hoverBorder} ${colors.hoverBg} ${colors.hoverText} transition-all duration-300 cursor-default`}
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="mt-8 pt-4 border-t border-white/5">
+                        <div className="w-full bg-white/5 rounded-full h-1.5 overflow-hidden">
+                          <div className={`${colors.bar} h-full rounded-full`} style={{ width: `${category.progress}%`, boxShadow: `0 0 10px ${colors.shadow}` }} />
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+
+          {/* EXPERIENCE SECTION */}
+          <section id="experience" className="py-24 relative overflow-hidden bg-white/[0.01]">
+            <div className="max-w-7xl mx-auto px-6">
+
+              {/* Section Header */}
+              <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span className="text-sm font-bold tracking-widest text-indigo-400 uppercase">Career</span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white tracking-tight">Experience</h2>
+                <div className="h-1 w-20 bg-gradient-to-r from-cyan-500 to-indigo-500 mx-auto rounded-full" />
+              </div>
+
+              {/* Timeline Layout */}
+              <div className="max-w-4xl mx-auto relative pl-6 sm:pl-8 border-l border-white/10 space-y-12">
+                {EXPERIENCE_DATA.map((exp, idx) => (
+                  <div key={idx} className="relative group">
+                    <div className="absolute -left-12 sm:-left-14 top-1.5 bg-indigo-500 p-2.5 rounded-full border border-[#030014] text-white shadow-[0_0_15px_rgba(99,102,241,0.5)] z-20 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:shadow-[0_0_15px_rgba(6,182,212,0.6)] transition-all duration-300">
+                      <Icons.Briefcase />
+                    </div>
+                    <div className="glass-card rounded-2xl p-7 md:p-8">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+                        <div>
+                          <h3 className="text-xl sm:text-2xl font-bold font-heading text-white group-hover:text-indigo-400 transition-colors">
+                            {exp.role}
+                          </h3>
+                          <p className="text-slate-300 font-medium text-sm sm:text-base mt-1">
+                            {exp.company}
+                          </p>
+                        </div>
+                        <div className="flex flex-col items-start sm:items-end gap-1.5 shrink-0">
+                          <span className="text-xs font-bold text-slate-400 flex items-center gap-1">
+                            <Icons.Location /> {exp.location}
+                          </span>
+                          <span className="text-xs font-semibold px-3.5 py-1 bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 rounded-full">
+                            {exp.duration}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="space-y-4 pt-4 border-t border-white/5">
+                        <ul className="space-y-3">
+                          {exp.highlights.map((point, i) => (
+                            <li key={i} className="flex items-start gap-3 text-sm sm:text-base text-slate-300 leading-relaxed">
+                              <span className="mt-1.5 shrink-0 h-2 w-2 rounded-full bg-gradient-to-br from-cyan-400 to-indigo-500" />
+                              {point}
+                            </li>
+                          ))}
+                        </ul>
+                        <div className="flex flex-wrap gap-2 mt-4">
+                          {exp.tech.map((tech) => (
+                            <span key={tech} className="text-[10px] font-semibold text-slate-300 bg-white/5 px-2.5 py-1 rounded-lg border border-white/5">
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* PROJECTS SECTION */}
+          <section id="projects" className="py-24 relative overflow-hidden">
+            <div className="max-w-7xl mx-auto px-6">
+
+              {/* Section Header */}
+              <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
+                <span className="text-sm font-bold tracking-widest text-purple-400 uppercase">Showcase</span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white tracking-tight">Featured Projects</h2>
+                <div className="h-1 w-20 bg-gradient-to-r from-cyan-500 to-indigo-500 mx-auto rounded-full" />
+              </div>
+
+              {/* Filtering Chips */}
+              <div className="flex flex-wrap items-center justify-center gap-3 mb-14">
+                {['All', 'Web App', 'Database', 'AI/ML'].map((filter) => (
+                  <button
+                    key={filter}
+                    onClick={() => setProjectFilter(filter)}
+                    className={`px-5 py-2 rounded-full text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-300 border focus:outline-none ${projectFilter === filter
+                      ? 'bg-gradient-to-r from-cyan-500 to-indigo-500 border-transparent text-white shadow-md shadow-indigo-500/20'
+                      : 'border-white/10 bg-white/5 text-slate-400 hover:text-slate-200 hover:border-indigo-500/30'
+                      }`}
+                  >
+                    {filter}
+                  </button>
+                ))}
+              </div>
+
+              {/* Projects Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+                {filteredProjects.map((project, idx) => (
+                  <div key={idx} className="glass-card rounded-2xl p-6 flex flex-col justify-between h-full group relative overflow-hidden">
+
+                    <div>
+                      {/* Top Badges */}
+                      <div className="flex items-center justify-between mb-4">
+                        <span className="text-[10px] font-extrabold tracking-widest uppercase text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20">
+                          {project.category}
+                        </span>
+
+                        <div className="flex items-center gap-1.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-full text-[10px] font-bold">
+                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                          {project.status}
+                        </div>
+                      </div>
+
+                      {/* Project Title */}
+                      <h3 className="text-xl font-bold font-heading text-white group-hover:text-indigo-300 transition-colors mb-3">
+                        {project.title}
+                      </h3>
+
+                      {/* Project Description */}
+                      <p className="text-sm text-slate-400 leading-relaxed mb-6 font-normal">
+                        {project.description}
+                      </p>
+                    </div>
+
+                    {/* Bottom Area */}
+                    <div>
+                      {/* Tech Stack Pills */}
+                      <div className="flex flex-wrap gap-1.5 mb-6">
+                        {project.tech.map((t) => (
+                          <span key={t} className="text-[10px] font-semibold text-slate-300 bg-white/5 px-2.5 py-1 rounded-lg border border-white/5">
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* CTA Links */}
+                      <div className="grid grid-cols-2 gap-3 pt-4 border-t border-white/5">
+                        {/* Private Repo Indicator Button */}
+                        <button
+                          disabled
+                          className="w-full flex items-center justify-center gap-1.5 py-2.5 rounded-xl border border-white/5 bg-white/[0.01] text-xs font-semibold text-slate-500 cursor-not-allowed"
+                          title="This code repository is private"
+                        >
+                          <Icons.Github />
+                          Code Private
+                        </button>
+
+                        {/* Demo Unavailable Button */}
+                        <button
+                          disabled
+                          className="w-full flex items-center justify-center gap-1.5 py-2.5 rounded-xl border border-white/5 bg-white/[0.01] text-xs font-semibold text-slate-500 cursor-not-allowed"
+                          title="Live demonstration is not available"
+                        >
+                          <Icons.ExternalLink />
+                          No Demo
+                        </button>
+                      </div>
+                    </div>
+
+                  </div>
+                ))}
+              </div>
+
+            </div>
+          </section>
+
+          {/* ACHIEVEMENTS SECTION */}
+          <section id="achievements" className="py-24 relative overflow-hidden bg-white/[0.01]">
+            <div className="max-w-7xl mx-auto px-6">
+              <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span className="text-sm font-bold tracking-widest text-emerald-400 uppercase">Recognition</span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white tracking-tight">Achievements</h2>
+                <div className="h-1 w-20 bg-gradient-to-r from-emerald-500 to-cyan-500 mx-auto rounded-full" />
+              </div>
+
+              <div className="max-w-3xl mx-auto grid grid-cols-1 gap-6">
+                {ACHIEVEMENTS_DATA.map((achievement, idx) => (
+                  <div key={idx} className="glass-card rounded-2xl p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6 group">
+                    <div className="p-4 bg-emerald-500/10 text-emerald-400 rounded-2xl shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <Icons.Award />
+                    </div>
+                    <div className="flex-1 space-y-2">
+                      <div className="flex flex-wrap items-center gap-3">
+                        <h3 className="text-xl font-bold font-heading text-white">{achievement.title}</h3>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full">
+                          {achievement.badge}
+                        </span>
+                      </div>
+                      <p className="text-sm text-indigo-300 font-semibold">{achievement.issuer}</p>
+                      <p className="text-sm sm:text-base text-slate-300 leading-relaxed">{achievement.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* EDUCATION SECTION */}
+          <section id="education" className="py-24 relative overflow-hidden bg-white/[0.01]">
+            <div className="max-w-7xl mx-auto px-6">
+
+              {/* Section Header */}
+              <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span className="text-sm font-bold tracking-widest text-cyan-400 uppercase">Timeline</span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white tracking-tight">Education</h2>
+                <div className="h-1 w-20 bg-gradient-to-r from-cyan-500 to-indigo-500 mx-auto rounded-full" />
+              </div>
+
+              {/* Timeline Layout */}
+              <div className="max-w-4xl mx-auto relative pl-6 sm:pl-8 border-l border-white/10 space-y-12">
+                {EDUCATION_DATA.map((edu, idx) => (
+                  <div key={idx} className="relative group">
+                    <div className="absolute -left-12 sm:-left-14 top-1.5 bg-indigo-500 p-2.5 rounded-full border border-[#030014] text-white shadow-[0_0_15px_rgba(99,102,241,0.5)] z-20 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:shadow-[0_0_15px_rgba(6,182,212,0.6)] transition-all duration-300">
+                      <Icons.GraduationCap />
+                    </div>
+                    <div className="glass-card rounded-2xl p-7 md:p-8">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+                        <div>
+                          <h3 className="text-xl sm:text-2xl font-bold font-heading text-white group-hover:text-indigo-400 transition-colors">
+                            {edu.degree}
+                          </h3>
+                          <p className="text-slate-300 font-medium text-sm sm:text-base mt-1">
+                            {edu.institution}
+                          </p>
+                        </div>
+                        <div className="flex flex-col items-start sm:items-end gap-1.5 shrink-0">
+                          <span className="text-xs font-bold text-slate-400 flex items-center gap-1">
+                            <Icons.Location /> {edu.location}
+                          </span>
+                          <span className="text-xs font-semibold px-3.5 py-1 bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 rounded-full">
+                            {edu.duration}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="space-y-4 pt-4 border-t border-white/5">
+                        <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                          {edu.description}
+                        </p>
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs font-semibold text-slate-400 uppercase">Score:</span>
+                          <span className="text-sm font-extrabold text-cyan-400">{edu.score}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* CERTIFICATIONS SECTION */}
+          <section id="certifications" className="py-24 relative overflow-hidden">
+            <div className="max-w-7xl mx-auto px-6">
+
+              {/* Section Header */}
+              <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span className="text-sm font-bold tracking-widest text-purple-400 uppercase">Credentials</span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white tracking-tight">Certifications</h2>
+                <div className="h-1 w-20 bg-gradient-to-r from-cyan-500 to-indigo-500 mx-auto rounded-full" />
+              </div>
+
+              {/* 5-Cert Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                {/* 1 â€“ Test Engineer (Infosys Foundation) */}
+                <div className="glass-card rounded-2xl p-6 flex flex-col justify-between group lg:col-span-1">
+                  <div>
+                    <div className="flex items-center gap-3.5 mb-4">
+                      <div className="p-3 bg-purple-500/10 text-purple-400 rounded-xl">
+                        <Icons.Award />
+                      </div>
+                      <div>
+                        <h3 className="text-base sm:text-lg font-bold font-heading text-white">Test Engineer</h3>
+                        <p className="text-xs text-slate-400">Infosys Foundation</p>
+                      </div>
+                    </div>
+                    <div className="space-y-3 mt-4 pt-4 border-t border-white/5">
+                      <div className="flex justify-between items-center text-xs">
+                        <span className="font-semibold text-slate-400">Issue Date:</span>
+                        <span className="font-semibold text-indigo-400">August 4</span>
+                      </div>
+                      <div className="flex justify-between items-center text-xs">
+                        <span className="font-semibold text-slate-400">Skills Verified:</span>
+                        <span className="font-bold text-slate-200 bg-white/5 px-2.5 py-1 rounded-md">Web Automation</span>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => setIsCertModalOpen(true)}
+                    className="w-full mt-5 py-3 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white flex items-center justify-center gap-2 shadow-lg shadow-purple-500/15 active:scale-95 transition-all duration-300 focus:outline-none"
+                  >
+                    <Icons.CheckCircle />
+                    Verify Credentials
+                  </button>
+                </div>
+
+                {/* 2 â€“ Java Programming (Great Learning) */}
+                <div className="glass-card rounded-2xl p-6 flex flex-col justify-between group">
+                  <div>
+                    <div className="flex items-center gap-3.5 mb-4">
+                      <div className="p-3 bg-cyan-500/10 text-cyan-400 rounded-xl">
+                        <Icons.Award />
+                      </div>
+                      <div>
+                        <h3 className="text-base sm:text-lg font-bold font-heading text-white">Java Programming</h3>
+                        <p className="text-xs text-slate-400">Great Learning</p>
+                      </div>
+                    </div>
+                    <div className="space-y-3 mt-4 pt-4 border-t border-white/5">
+                      <div className="flex justify-between items-center text-xs">
+                        <span className="font-semibold text-slate-400">Domain:</span>
+                        <span className="font-bold text-slate-200 bg-white/5 px-2.5 py-1 rounded-md">Backend Development</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-5 pt-4 border-t border-white/5">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-400">
+                      <Icons.CheckCircle /> Certified
+                    </span>
+                  </div>
+                </div>
+
+                {/* Cert 3: Operating System - Great Learning */}
+                <div className="glass-card rounded-2xl p-6 flex flex-col justify-between group h-full">
+                  <div>
+                    <div className="flex items-center gap-3.5 mb-4">
+                      <div className="p-3 bg-cyan-500/10 text-cyan-400 rounded-xl">
+                        <Icons.Award />
+                      </div>
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-bold font-heading text-white">Operating System</h3>
+                        <p className="text-xs text-slate-400">Great Learning</p>
+                      </div>
+                    </div>
+                    <div className="space-y-4 mt-6 pt-4 border-t border-white/5">
+                      <div className="flex justify-between items-center text-xs">
+                        <span className="font-semibold text-slate-400">Platform:</span>
+                        <span className="font-semibold text-cyan-400">Great Learning</span>
+                      </div>
+                      <div className="flex justify-between items-center text-xs">
+                        <span className="font-semibold text-slate-400">Skills Verified:</span>
+                        <span className="font-bold text-slate-200 bg-white/5 px-2.5 py-1 rounded-md">OS Concepts</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="w-full mt-6 py-3 px-4 rounded-xl text-sm border border-cyan-500/20 bg-cyan-500/5 text-cyan-300 flex items-center justify-center gap-2">
+                    <Icons.Award />
+                    Certified
+                  </div>
+                </div>
+
+                {/* Cert 4: Cloud Computing - Infosys Springboard */}
+                <div className="glass-card rounded-2xl p-6 flex flex-col justify-between group h-full">
+                  <div>
+                    <div className="flex items-center gap-3.5 mb-4">
+                      <div className="p-3 bg-sky-500/10 text-sky-400 rounded-xl">
+                        <Icons.Award />
+                      </div>
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-bold font-heading text-white">Cloud Computing</h3>
+                        <p className="text-xs text-slate-400">Infosys Springboard</p>
+                      </div>
+                    </div>
+                    <div className="space-y-4 mt-6 pt-4 border-t border-white/5">
+                      <div className="flex justify-between items-center text-xs">
+                        <span className="font-semibold text-slate-400">Platform:</span>
+                        <span className="font-semibold text-sky-400">Infosys Springboard</span>
+                      </div>
+                      <div className="flex justify-between items-center text-xs">
+                        <span className="font-semibold text-slate-400">Skills Verified:</span>
+                        <span className="font-bold text-slate-200 bg-white/5 px-2.5 py-1 rounded-md">Cloud Fundamentals</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="w-full mt-6 py-3 px-4 rounded-xl text-sm border border-sky-500/20 bg-sky-500/5 text-sky-300 flex items-center justify-center gap-2">
+                    <Icons.Award />
+                    Certified
+                  </div>
+                </div>
+
+                {/* Cert 5: Artificial Intelligence - Infosys Springboard */}
+                <div className="glass-card rounded-2xl p-6 flex flex-col justify-between group h-full sm:col-span-2 lg:col-span-2">
+                  <div>
+                    <div className="flex items-center gap-3.5 mb-4">
+                      <div className="p-3 bg-amber-500/10 text-amber-400 rounded-xl">
+                        <Icons.Cpu />
+                      </div>
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-bold font-heading text-white">Artificial Intelligence</h3>
+                        <p className="text-xs text-slate-400">Infosys Springboard</p>
+                      </div>
+                    </div>
+                    <div className="space-y-4 mt-6 pt-4 border-t border-white/5">
+                      <div className="flex justify-between items-center text-xs">
+                        <span className="font-semibold text-slate-400">Platform:</span>
+                        <span className="font-semibold text-amber-400">Infosys Springboard</span>
+                      </div>
+                      <div className="flex justify-between items-center text-xs">
+                        <span className="font-semibold text-slate-400">Skills Verified:</span>
+                        <span className="font-bold text-slate-200 bg-white/5 px-2.5 py-1 rounded-md">AI Fundamentals</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="w-full mt-6 py-3 px-4 rounded-xl text-sm border border-amber-500/20 bg-amber-500/5 text-amber-300 flex items-center justify-center gap-2">
+                    <Icons.Award />
+                    Certified
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </section>
+
+          {/* CTA & CONTACT FORM SECTION */}
+          <section id="contact" className="py-24 relative overflow-hidden bg-white/[0.01]">
+            <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+              {/* Left Column: CTA Pitch */}
+              <div className="lg:col-span-5 space-y-6">
+                <div className="space-y-3">
+                  <span className="text-sm font-bold tracking-widest text-cyan-400 uppercase">Availability</span>
+                  <h2 className="text-4xl font-extrabold font-heading text-white tracking-tight">Let's work together!</h2>
+                  <div className="h-1 w-20 bg-gradient-to-r from-cyan-500 to-indigo-500 rounded-full" />
+                </div>
+
+                <p className="text-base text-slate-300 leading-relaxed max-w-md">
+                  I am actively seeking software engineering positions and full-stack development opportunities. If you're looking for an enthusiastic developer skilled in Java, Spring Boot, React, and MySQL, let's connect and build together.
+                </p>
+
+                {/* Email Display Card */}
+                <div className="glass-card rounded-2xl p-5 flex items-center gap-4 hover:border-indigo-500/30 transition-all duration-300 max-w-md relative group overflow-hidden">
+                  <div className="p-3.5 bg-indigo-500/10 text-indigo-400 rounded-xl">
+                    <Icons.Mail />
+                  </div>
+                  <div>
+                    <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Email Me</h3>
+                    <a
+                      href={`mailto:${STUDENT_DETAILS.email}`}
+                      className="text-sm sm:text-base font-bold text-white hover:text-indigo-300 transition-colors"
+                    >
+                      {STUDENT_DETAILS.email}
+                    </a>
+                  </div>
+                </div>
+
+                {/* Phone Display Card */}
+                <div className="glass-card rounded-2xl p-5 flex items-center gap-4 hover:border-cyan-500/30 transition-all duration-300 max-w-md">
+                  <div className="p-3.5 bg-cyan-500/10 text-cyan-400 rounded-xl">
+                    <Icons.Phone />
+                  </div>
+                  <div>
+                    <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Call Me</h3>
+                    <a
+                      href={`tel:${STUDENT_DETAILS.phone.replace(/\s/g, '')}`}
+                      className="text-sm sm:text-base font-bold text-white hover:text-cyan-300 transition-colors"
+                    >
+                      {STUDENT_DETAILS.phone}
+                    </a>
+                  </div>
+                </div>
+
+                {/* Info Card */}
+                <div className="glass-card rounded-2xl p-5 flex items-center gap-4 hover:border-purple-500/30 transition-all duration-300 max-w-md">
+                  <div className="p-3.5 bg-purple-500/10 text-purple-400 rounded-xl">
+                    <Icons.Location />
+                  </div>
+                  <div>
+                    <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Base Location</h3>
+                    <p className="text-sm sm:text-base font-bold text-white">{STUDENT_DETAILS.location}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column: Contact Form */}
+              <div className="lg:col-span-7">
+                <div className="glass-card rounded-2xl p-8 relative overflow-hidden">
+
+                  <h3 className="text-2xl font-bold font-heading text-white mb-6">Send A Message</h3>
+
+                  <form onSubmit={handleContactSubmit} className="space-y-5">
+
+                    {/* Name */}
+                    <div className="space-y-2">
+                      <label htmlFor="name" className="text-xs font-bold text-slate-300 uppercase tracking-wide">Your Name</label>
+                      <input
+                        id="name"
+                        type="text"
+                        value={formName}
+                        onChange={(e) => setFormName(e.target.value)}
+                        className={`w-full bg-slate-950/60 border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 transition-all ${formErrors.name
+                          ? 'border-rose-500/50 focus:ring-rose-500/20'
+                          : 'border-white/10 focus:border-indigo-500/50 focus:ring-indigo-500/20'
+                          }`}
+                        placeholder="John Doe"
+                      />
+                      {formErrors.name && <p className="text-xs text-rose-400 font-semibold">{formErrors.name}</p>}
+                    </div>
+
+                    {/* Email */}
+                    <div className="space-y-2">
+                      <label htmlFor="email" className="text-xs font-bold text-slate-300 uppercase tracking-wide">Your Email</label>
+                      <input
+                        id="email"
+                        type="email"
+                        value={formEmail}
+                        onChange={(e) => setFormEmail(e.target.value)}
+                        className={`w-full bg-slate-950/60 border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 transition-all ${formErrors.email
+                          ? 'border-rose-500/50 focus:ring-rose-500/20'
+                          : 'border-white/10 focus:border-indigo-500/50 focus:ring-indigo-500/20'
+                          }`}
+                        placeholder="johndoe@example.com"
+                      />
+                      {formErrors.email && <p className="text-xs text-rose-400 font-semibold">{formErrors.email}</p>}
+                    </div>
+
+                    {/* Subject */}
+                    <div className="space-y-2">
+                      <label htmlFor="subject" className="text-xs font-bold text-slate-300 uppercase tracking-wide">Subject (Optional)</label>
+                      <input
+                        id="subject"
+                        type="text"
+                        value={formSubject}
+                        onChange={(e) => setFormSubject(e.target.value)}
+                        className="w-full bg-slate-950/60 border border-white/10 focus:border-indigo-500/50 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all"
+                        placeholder="Project Collaboration"
+                      />
+                    </div>
+
+                    {/* Message */}
+                    <div className="space-y-2">
+                      <label htmlFor="message" className="text-xs font-bold text-slate-300 uppercase tracking-wide">Message</label>
+                      <textarea
+                        id="message"
+                        rows={4}
+                        value={formMessage}
+                        onChange={(e) => setFormMessage(e.target.value)}
+                        className={`w-full bg-slate-950/60 border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 transition-all ${formErrors.message
+                          ? 'border-rose-500/50 focus:ring-rose-500/20'
+                          : 'border-white/10 focus:border-indigo-500/50 focus:ring-indigo-500/20'
+                          }`}
+                        placeholder="Hi Darshan, I'd like to talk about..."
+                      />
+                      {formErrors.message && <p className="text-xs text-rose-400 font-semibold">{formErrors.message}</p>}
+                    </div>
+
+                    {/* Submit Button */}
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full py-4 bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-bold text-sm tracking-wider uppercase rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/20 active:scale-95 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed focus:outline-none"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          Send Message
+                          <Icons.ArrowRight />
+                        </>
+                      )}
+                    </button>
+
+                  </form>
+
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <footer className="border-t border-white/5 py-12 relative overflow-hidden bg-slate-950/80 text-center">
+            <div className="max-w-7xl mx-auto px-6 flex flex-col items-center justify-center gap-2">
+
+              <p className="text-sm sm:text-base text-slate-300 font-medium tracking-wide">
+                Thank you for visiting my portfolio.
+              </p>
+
+              <p className="text-xs text-slate-500 mt-2">
+                &copy; {new Date().getFullYear()} {STUDENT_DETAILS.name}.
+              </p>
+
+              <p className="text-xs text-slate-500">
+                Designed & Developed by {STUDENT_DETAILS.name}.
+              </p>
+
+              {/* Action arrow to top */}
+              <a
+                href="#home"
+                className="mt-4 p-3 rounded-xl bg-white/5 border border-white/10 hover:border-indigo-500/30 text-slate-400 hover:text-white transition-all hover:-translate-y-1 shadow-[0_4px_12px_rgba(0,0,0,0.3)]"
+                title="Back to Top"
+              >
+                <Icons.ArrowUp />
+              </a>
+
+            </div>
+          </footer>
+
+          {/* CERTIFICATE VERIFICATION MODAL */}
+          {isCertModalOpen && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+              {/* Overlay Backdrop */}
+              <div
+                className="absolute inset-0 bg-[#030014]/90 backdrop-blur-md cursor-pointer"
+                onClick={() => setIsCertModalOpen(false)}
+              />
+
+              {/* Modal Box */}
+              <div className="relative w-full max-w-4xl bg-slate-900 border border-white/10 rounded-2xl overflow-hidden shadow-[0_24px_50px_-12px_rgba(0,0,0,0.8)] z-10">
+
+                {/* Modal Header */}
+                <div className="flex items-center justify-between p-5 border-b border-white/5">
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-bold font-heading text-white">Certificate Verification</h3>
+                    <p className="text-xs text-slate-400">Infosys Foundation - Test Engineer (Web Automation)</p>
+                  </div>
+                  <button
+                    onClick={() => setIsCertModalOpen(false)}
+                    className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 focus:outline-none transition-colors"
+                  >
+                    <Icons.X />
+                  </button>
+                </div>
+
+                {/* Certificate Display Area */}
+                <div className="bg-slate-950 p-6 flex items-center justify-center min-h-[300px] max-h-[70vh] overflow-y-auto">
+                  <img
+                    src="https://www.image2url.com/r2/default/images/1780074035624-d9998c5b-4bd6-4749-a0ce-bcaa3c6cf635.jpeg"
+                    alt="Infosys Foundation Test Engineer Certificate"
+                    className="max-w-full h-auto object-contain rounded-lg shadow-lg border border-white/5"
+                  />
+                </div>
+
+                {/* Footer Controls */}
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-5 border-t border-white/5 bg-slate-900">
+                  <span className="text-xs text-slate-400 font-medium">Verified ID: Infosys August 4 Credential</span>
+
+                  <div className="flex items-center gap-3.5 w-full sm:w-auto">
+                    <button
+                      onClick={() => setIsCertModalOpen(false)}
+                      className="w-full sm:w-auto px-5 py-2.5 rounded-xl border border-white/10 text-slate-300 font-bold text-xs hover:bg-white/5 transition-all"
+                    >
+                      Close Viewer
+                    </button>
+                    <a
+                      href="https://www.image2url.com/r2/default/images/1780074035624-d9998c5b-4bd6-4749-a0ce-bcaa3c6cf635.jpeg"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold text-xs hover:from-purple-500 hover:to-indigo-500 flex items-center justify-center gap-1.5 shadow-lg shadow-purple-500/10"
+                    >
+                      Open Original Image
+                      <Icons.ExternalLink />
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          )}
+
+          {/* CONTACT SUCCESS FEEDBACK MODAL */}
+          {isSuccessModalOpen && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+              {/* Overlay Backdrop */}
+              <div
+                className="absolute inset-0 bg-[#030014]/85 backdrop-blur-sm cursor-pointer"
+                onClick={closeSuccessModal}
+              />
+
+              {/* Dialog Panel */}
+              <div className="relative w-full max-w-md glass-card rounded-3xl p-8 text-center shadow-[0_24px_50px_-12px_rgba(139,92,246,0.3)] z-10">
+
+                {/* Glowing Success Ring */}
+                <div className="mx-auto w-18 h-18 bg-emerald-500/10 border border-emerald-500/30 rounded-full flex items-center justify-center text-emerald-400 mb-6 flex items-center justify-center shadow-[0_0_20px_rgba(52,211,153,0.2)]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+
+                <h3 className="text-2xl font-extrabold font-heading text-white mb-2">Message Sent!</h3>
+                <p className="text-sm text-slate-400 leading-relaxed mb-6">
+                  Thank you for reaching out, <span className="text-indigo-300 font-semibold">{formName}</span>. Your inquiry has been submitted successfully. I will review it and get back to you at <span className="text-indigo-300 font-semibold">{formEmail}</span> as soon as possible.
+                </p>
+
+                <button
+                  onClick={closeSuccessModal}
+                  className="w-full py-3 bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold text-sm tracking-wider uppercase rounded-xl shadow-lg shadow-emerald-500/10 hover:scale-105 transition-all duration-300 focus:outline-none"
+                >
+                  Awesome
+                </button>
+
+              </div>
+            </div>
+          )}
+
+        </div>
+      );
+    };
+
+    // Render App
+    const rootEl = document.getElementById('root');
+    if (rootEl) {
+      const root = ReactDOM.createRoot(rootEl);
+      root.render(<PortfolioApp />);
+    }
+
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script>
+    emailjs.init("h9N7iqQkGKVrj36rd");
+  </script>
+</body>
+
+</html>
