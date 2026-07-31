@@ -56,7 +56,7 @@ Real-time sign language detection using Python, OpenCV, MediaPipe, and TensorFlo
 Email: **darshanhb.official@gmail.com**
 
 LinkedIn:
-(Add your LinkedIn URL)
+https://www.linkedin.com/in/darshan-hb/
 
 GitHub:
 https://github.com/darshanhbofficial-pixel
